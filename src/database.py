@@ -1,7 +1,7 @@
 from sqlmodel import create_engine, SQLModel, Session
 import os
 
-# Database configuration
+# Database config
 sqlite_file_name = "weather_database.db"
 sqlite_url = f"sqlite:///./{sqlite_file_name}"
 
