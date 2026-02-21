@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkyCast | Weather Data Platform</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@0.475.0/dist/umd/lucide.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="cloud-sun"></i>
+                <h1>SkyCast</h1>
+            </div>
+            <div class="search-bar">
+                <div class="input-group">
+                    <input type="text" id="cityInput" placeholder="Add a city (e.g. London)..." autocomplete="off">
+                    <div id="citySuggestions" class="suggestions-dropdown hidden"></div>
+                </div>
+                <button id="addCityBtn"><i data-lucide="plus"></i> Add</button>
+            </div>
+            <div class="global-actions">
+                <button id="syncAllBtn" title="Sync All"><i data-lucide="refresh-cw"></i></button>
+            </div>
+        </header>
+
+        <main>
+            <section class="watchlist">
+                <div class="section-header">
+                    <h2>Tracked Locations</h2>
+                    <span id="lastSyncedGlobal"></span>
+                </div>
+                <div id="locationGrid" class="location-grid">
+                    <!-- Location cards will be injected here -->
+                    <div class="loading">Loading your weather...</div>
+                </div>
+            </section>
+
+            <section id="forecastSection" class="forecast-overlay hidden">
+                <div class="forecast-card">
+                    <button class="close-btn" id="closeForecast"><i data-lucide="x"></i></button>
+                    <div class="forecast-header">
+                        <h2 id="forecastCityName">City Name</h2>
+                        <p id="forecastCountry">Country</p>
+                    </div>
+                    <div id="forecastGrid" class="forecast-grid">
+                        <!-- Forecast items will be injected here -->
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>&copy; 2026 SkyCast Weather Integration Platform</p>
+        </footer>
+    </div>
+
+    <!-- Notification Toast -->
+    <div id="toast" class="toast hidden"></div>
+
+    <script src="/static/script.js"></script>
+</body>
+
+</html>
